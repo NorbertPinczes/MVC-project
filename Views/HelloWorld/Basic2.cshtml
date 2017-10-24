@@ -1,0 +1,93 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+	function showFunctionText() {
+			document.getElementById("para").innerHTML = "text from grey box";
+		}
+	function showFunctionImg(id) {
+			var x = document.createElement("IMG");
+			if(id=="green")
+			{
+				x.setAttribute("src", "ski.jpg");
+			}
+			else
+			{
+				x.setAttribute("src", "feather.jpg");
+			}
+			<!-- x.setAttribute("width", "304"); -->
+			<!-- x.setAttribute("height", "228"); -->
+			x.setAttribute("alt", "test");
+			<!--document.body.appendChild(x);-->
+			document.getElementById('imgDIV').appendChild(x);
+		}
+		
+	var i = 1;
+	
+	function changeBackground() {
+		if(i == 5){
+			i=0;
+		}
+		i++;
+		var base = document.getElementById('col3');
+		base.style.backgroundImage = "url('BG_" + i + ".png')";
+	}
+	
+  </script>
+  <style>
+	/**#col3 {
+		background-image: url("BG_1.png");
+		background-size: 100% 100%;
+	}**/
+  </style>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1></h1>
+  <p>Responsive Bootstrap page</p> 
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2" style="background-color:Aqua;">
+      <h3>Column 1</h3>
+		<div>
+		<img id="grey" src="GreyBox.jpg" alt="button" width="50px" onclick="showFunctionImg(this.id)">
+		<img id="green" src="lightGreenBox.jpg" alt="button" width="50px" onclick="showFunctionImg(this.id)">
+		</div>
+    </div>
+    <div class="col-sm-2" style="background-color:Lime";>
+      <h3>Column 2</h3>
+		<p id="para"></p>
+		<div id="show">
+		</div>
+    </div>
+    <div class="col-sm-2" style="background-color:Gray";>
+      <h3>Column 3</h3>
+	  <button onclick="changeBackground()">bgr</button>
+	  <div id="col3" style="background-image:url('ski.jpg'); background-size: 100% 100%;" >
+		<h5>foreground</h5>
+	  </div>
+    </div>	
+    <div class="col-sm-6"style="background-color:Blue";>
+      <h3>Column 3</h3> 
+		<div id="imgDIV">
+		</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
